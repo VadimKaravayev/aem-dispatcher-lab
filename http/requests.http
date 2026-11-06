@@ -1,0 +1,6 @@
+### Flush a page from the dispatcher cache (creates .stat files)
+POST {{dispatcher}}/dispatcher/invalidate.cache
+CQ-Action: Activate
+CQ-Handle: /content/wknd/language-masters/en/secure/ski-touring
+Content-Type: application/octet-stream
+Content-Length: 0

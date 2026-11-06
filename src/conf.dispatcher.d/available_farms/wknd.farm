@@ -37,16 +37,20 @@
 	/cache {
 		# The cacheroot must be equal to the document root of the webserver
 		/docroot "${DOCROOT}"
+
 		# sets the level upto which files named ".stat" will be created in the
 		# document root of the webserver. when an activation request for some
 		# handle is received, only files within the same subtree are affected
 		# by the invalidation.
 		/statfileslevel "2"
+
 		# caches also authorized data
 		/allowAuthorized "0"
+
 		# Flag indicating whether the dispatcher should serve stale content if
 		# no remote server is available.
 		/serveStaleOnError "1"
+
 		# the rules define, which pages should be cached. please note that
 		# - only GET requests are cached
 		# - only requests with an extension are cached
@@ -78,6 +82,8 @@
 		}
 		/allowedClients {
 			$include "../cache/default_invalidate.any"
+			# lab only: allow flush requests from the host (Docker Desktop gateway)
+			/0100 { /type "allow" /glob "192.168.65.1" }
 		}
 		# The ignoreUrlParams section contains query string parameter names that
 		# should be ignored when determining whether some request's output can be
