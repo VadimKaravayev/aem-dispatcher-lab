@@ -10,6 +10,9 @@ Include conf.d/rewrites/default_rewrite.rules
 # rewrite for root redirect
 RewriteRule ^/?$ /content/${CONTENT_FOLDER_NAME}/language-masters/en.html [PT,L]
 
+# short language URLs -> language masters
+RewriteRule ^/en(\.html|/.*)$ /content/${CONTENT_FOLDER_NAME}/language-masters/en$1 [PT,L]
+
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
 RewriteCond %{REQUEST_URI} !^/content

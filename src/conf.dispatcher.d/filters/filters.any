@@ -11,3 +11,7 @@ $include "./default_filters.any"
 
 # Allow manifest.webmanifest files located in the content
 /0102 { /type "allow" /extension "webmanifest" /path "/content/*/manifest" }
+
+/0103 { /type "allow" /method "POST" /url "/system/sling/login/j_security_check" }
+/0104 { /type "allow" /method "POST" /url "/system/sling/logout" }
+/0105 { /type "deny" /path "/content/wknd/language-masters/en/secure" }
